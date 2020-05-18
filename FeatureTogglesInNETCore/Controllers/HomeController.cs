@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement;
 using Microsoft.FeatureManagement.Mvc;
@@ -19,14 +20,19 @@ namespace FeatureTogglesInNETCore.Controllers
         [FeatureGate(MyFeatureFlags.FeatureA)]
         public IActionResult GetA()
         {
-            return Ok("Home controller works!");
+            return Ok("Feature A works!");
         }
 
         [HttpGet("FeatureB")]
         [ApiExplorerSettings(IgnoreApi = false)]
-        public IActionResult GetB()
+        public async Task<IActionResult> GetB()
         {
-            return Ok("Home controller works!");
+            if (await _featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
+            {
+                return Ok("Feature B is enabled");
+            }
+
+            return Ok("Feature B is NOT enabled");
         }
 
         [HttpGet("FeatureC")]
