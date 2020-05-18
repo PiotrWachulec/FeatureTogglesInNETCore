@@ -24,7 +24,6 @@ namespace FeatureTogglesInNETCore.Controllers
         }
 
         [HttpGet("FeatureB")]
-        [ApiExplorerSettings(IgnoreApi = false)]
         public async Task<IActionResult> GetB()
         {
             if (await _featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
