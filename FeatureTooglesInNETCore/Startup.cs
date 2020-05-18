@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
 
 namespace FeatureTooglesInNETCore
@@ -28,6 +29,8 @@ namespace FeatureTooglesInNETCore
         {
             services.AddControllers();
 
+            services.AddFeatureManagement();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"});
@@ -37,6 +40,8 @@ namespace FeatureTooglesInNETCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseAzureAppConfiguration();
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
