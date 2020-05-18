@@ -18,6 +18,16 @@ namespace FeatureTooglesInNETCore
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                        {
+                            var settings = config.Build();
+                            config.AddAzureAppConfiguration(options =>
+                            {
+                                options.Connect(settings["ConnectionStrings:AppConfig"])
+                                    .UseFeatureFlags();
+                            });
+                        })
+                        .UseStartup<Startup>());
     }
 }
