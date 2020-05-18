@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureTooglesInNETCore", "FeatureTooglesInNETCore\FeatureTooglesInNETCore.csproj", "{3930B719-C1A4-4E4B-A987-A199E2197656}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureTogglesInNETCore", "FeatureTogglesInNETCore\FeatureTogglesInNETCore.csproj", "{3930B719-C1A4-4E4B-A987-A199E2197656}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

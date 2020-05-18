@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement;
 using Microsoft.FeatureManagement.Mvc;
 
-namespace FeatureTooglesInNETCore.Controllers
+namespace FeatureTogglesInNETCore.Controllers
 {
     [ApiController]
     [Route("[controller]")]

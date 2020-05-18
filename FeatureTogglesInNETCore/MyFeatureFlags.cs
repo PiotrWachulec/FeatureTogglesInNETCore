@@ -1,4 +1,4 @@
-namespace FeatureTooglesInNETCore
+namespace FeatureTogglesInNETCore
 {
     public enum MyFeatureFlags
     {

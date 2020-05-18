@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
 
-namespace FeatureTooglesInNETCore
+namespace FeatureTogglesInNETCore
 {
     public class Startup
     {
